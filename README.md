@@ -2,7 +2,7 @@
 
 Cloudflare Workers 代理
 
-# HTTP 代理i
+# HTTP 代理
 
 # 环境变量
 
