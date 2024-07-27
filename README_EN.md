@@ -27,7 +27,7 @@ Copy [http_proxy.js](http_proxy.js), save and deploy
 
 ### Mirror repository proxy
 
-Set the environment variable PROXY_HOSTNAME to the mirror repository address.
+1. Set the environment variable PROXY_HOSTNAME to the mirror repository address.
 
 | Mirror repository | Address              |     
 |-------------------|----------------------|
@@ -39,6 +39,21 @@ Set the environment variable PROXY_HOSTNAME to the mirror repository address.
 | ghcr              | ghcr.io              |   
 | cloudsmith        | docker.cloudsmith.io |   
 | ecr               | public.ecr.aws       |  
+
+2. Set up a Docker registry proxy
+
+Replace https://dockerhub.xxx.com with your worker custom domain name
+
+```bash
+mkdir -p /etc/docker
+cat >/etc/docker/daemon.json <<EOF
+{
+  "registry-mirrors":["https://dockerhub.xxx.com"]
+}
+EOF
+systemctl daemon-reload
+systemctl restart docker
+```
 
 ## Other
 

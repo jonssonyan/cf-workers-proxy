@@ -25,9 +25,9 @@ Cloudflare Workers HTTP 反向代理
 
 复制 [http_proxy.js](http_proxy.js) ，保存并部署
 
-### 镜像仓库代理
+### 镜像仓库加速
 
-将环境变量 PROXY_HOSTNAME 设置为以镜像仓库地址即可
+1. 将环境变量 PROXY_HOSTNAME 设置为以镜像仓库地址即可
 
 | 镜像仓库       | 地址                   |     
 |------------|----------------------|
@@ -39,6 +39,21 @@ Cloudflare Workers HTTP 反向代理
 | ghcr       | ghcr.io              |   
 | cloudsmith | docker.cloudsmith.io |   
 | ecr        | public.ecr.aws       |   
+
+2. 设置 Docker 镜像仓库加速
+
+将 https://dockerhub.xxx.com 替换为你的 worker 自定义域名
+
+```bash
+mkdir -p /etc/docker
+cat >/etc/docker/daemon.json <<EOF
+{
+  "registry-mirrors":["https://dockerhub.xxx.com"]
+}
+EOF
+systemctl daemon-reload
+systemctl restart docker
+```
 
 ## 其他
 
