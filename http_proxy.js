@@ -23,7 +23,12 @@ function createNewRequest(request, url, proxyHostname, originHostname) {
   });
 }
 
-function setResponseHeaders(originalResponse, proxyHostname, originHostname) {
+function setResponseHeaders(
+  originalResponse,
+  proxyHostname,
+  originHostname,
+  DEBUG
+) {
   const newResponseHeaders = new Headers(originalResponse.headers);
   for (const [key, value] of newResponseHeaders) {
     if (value.includes(proxyHostname)) {
@@ -32,6 +37,9 @@ function setResponseHeaders(originalResponse, proxyHostname, originHostname) {
         value.replace(new RegExp(`\\b${proxyHostname}\\b`, "g"), originHostname)
       );
     }
+  }
+  if (DEBUG) {
+    newResponseHeaders.delete("content-security-policy");
   }
   return newResponseHeaders;
 }
@@ -70,6 +78,7 @@ export default {
         PATHNAME_REGEX,
         UA_REGEX,
         URL302,
+        DEBUG = false,
       } = env;
       const url = new URL(request.url);
       const originHostname = url.hostname;
@@ -98,7 +107,8 @@ export default {
       const newResponseHeaders = setResponseHeaders(
         originalResponse,
         PROXY_HOSTNAME,
-        originHostname
+        originHostname,
+        DEBUG
       );
       const contentType = newResponseHeaders.get("content-type") || "";
       let body;
