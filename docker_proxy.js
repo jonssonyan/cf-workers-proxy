@@ -13,7 +13,7 @@ function logError(request, message) {
   console.error(
     `${message}, clientIp: ${request.headers.get(
       "x-real-ip"
-    )}, user-agent: ${request.headers.get("user-agent")}`
+    )}, user-agent: ${request.headers.get("user-agent")}, url: ${request.url}`
   );
 }
 
@@ -21,17 +21,18 @@ function createNewRequest(request, url) {
   const newRequestHeaders = new Headers(request.headers);
   newRequestHeaders.set("host", url.hostname);
   newRequestHeaders.set("referer", url.hostname);
-  return new Request(url.href, {
+  return new Request(url.toString(), {
     method: request.method,
     headers: newRequestHeaders,
-    body: request.body || undefined,
+    body: request.body,
   });
 }
 
-function setResponseHeaders(originalHeaders) {
-  const newResponseHeaders = new Headers(originalHeaders);
+function setResponseHeaders(originalResponse) {
+  const newResponseHeaders = new Headers(originalResponse.headers);
   newResponseHeaders.set("access-control-allow-origin", "*");
   newResponseHeaders.set("access-control-allow-credentials", "true");
+  newResponseHeaders.set("cache-control", "no-store");
   newResponseHeaders.delete("content-security-policy");
   newResponseHeaders.delete("content-security-policy-report-only");
   newResponseHeaders.delete("clear-site-data");
@@ -53,8 +54,9 @@ export default {
       url.host = host;
       const newRequest = createNewRequest(request, url);
       const originalResponse = await fetch(newRequest);
-      const newResponseHeaders = setResponseHeaders(originalResponse.headers);
-      return new Response(originalResponse.body, {
+      const responseBody = await originalResponse.clone().arrayBuffer();
+      const newResponseHeaders = setResponseHeaders(originalResponse);
+      return new Response(responseBody, {
         status: originalResponse.status,
         headers: newResponseHeaders,
       });
