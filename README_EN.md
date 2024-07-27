@@ -25,6 +25,21 @@ Cloudflare Workers HTTP reverse proxy
 
 Copy [http_proxy.js](http_proxy.js), save and deploy
 
+### Mirror repository proxy
+
+Set the environment variable PROXY_HOSTNAME to the mirror repository address.
+
+| Mirror repository | Address              |     
+|-------------------|----------------------|
+| docker            | registry-1.docker.io |   
+| k8s-gcr           | k8s.gcr.io           |   
+| k8s               | registry.k8s.io      |    
+| quay              | quay.io              |   
+| gcr               | gcr.io               |  
+| ghcr              | ghcr.io              |   
+| cloudsmith        | docker.cloudsmith.io |   
+| ecr               | public.ecr.aws       |  
+
 ## Other
 
 you can contact me at YouTube: https://www.youtube.com/@jonssonyan

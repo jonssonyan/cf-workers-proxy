@@ -25,6 +25,21 @@ Cloudflare Workers HTTP 反向代理
 
 复制 [http_proxy.js](http_proxy.js) ，保存并部署
 
+### 镜像仓库代理
+
+将环境变量 PROXY_HOSTNAME 设置为以镜像仓库地址即可
+
+| 镜像仓库       | 地址                   |     
+|------------|----------------------|
+| docker     | registry-1.docker.io |   
+| k8s-gcr    | k8s.gcr.io           |   
+| k8s        | registry.k8s.io      |    
+| quay       | quay.io              |   
+| gcr        | gcr.io               |  
+| ghcr       | ghcr.io              |   
+| cloudsmith | docker.cloudsmith.io |   
+| ecr        | public.ecr.aws       |   
+
 ## 其他
 
 你可以在哔哩哔哩上关注我: https://space.bilibili.com/374864141
