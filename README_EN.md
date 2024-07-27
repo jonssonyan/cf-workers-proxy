@@ -1,8 +1,12 @@
-[简体中文](README.md)
+<div align="center">
 
-# Cloudflare Workers Proxy
+<h1 align="center">Cloudflare Workers Proxy</h1>
+
+English / [简体中文](README.md)
 
 Cloudflare Workers HTTP reverse proxy
+
+</div>
 
 ## List
 
