@@ -33,7 +33,7 @@ export default {
       url.protocol = TARGET_PROTOCOL;
       const newRequestHeaders = new Headers(request.headers);
       newRequestHeaders.set("host", url.hostname);
-      newRequestHeaders.set("referer", request.url);
+      newRequestHeaders.set("referer", url.hostname);
       const originalResponse = await fetch(url.href, {
         method: request.method,
         headers: newRequestHeaders,
