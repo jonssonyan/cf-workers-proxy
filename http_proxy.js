@@ -12,7 +12,7 @@ function createNewRequest(request, url, proxyHostname, originHostname) {
     if (value.includes(originHostname)) {
       newRequestHeaders.set(
         key,
-        value.replace(new RegExp(`\\b${originHostname}\\b`, "g"), proxyHostname)
+        value.replace(new RegExp(`(?<!\\.)\\bgithub.com\\b`, "g"), proxyHostname)
       );
     }
   }
@@ -34,7 +34,7 @@ function setResponseHeaders(
     if (value.includes(proxyHostname)) {
       newResponseHeaders.set(
         key,
-        value.replace(new RegExp(`\\b${proxyHostname}\\b`, "g"), originHostname)
+        value.replace(new RegExp(`(?<!\.)\bgithub.com\b`, "g"), originHostname)
       );
     }
   }
@@ -61,11 +61,11 @@ async function replaceResponseText(
   let text = await originalResponse.text();
   if (pathnameRegex) {
     return text.replace(
-      new RegExp(`^(\\b${proxyHostname}\\b)(${pathnameRegex})$`),
+      new RegExp(`^((?<!\.)\bgithub.com\b)(${pathnameRegex})$`),
       `${originHostname}$2`
     );
   } else {
-    return text.replace(new RegExp(`\\b${proxyHostname}\\b`), originHostname);
+    return text.replace(new RegExp(`(?<!\.)\bgithub.com\b`), originHostname);
   }
 }
 
