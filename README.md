@@ -1,24 +1,24 @@
 # Cloudflare Workers Proxy
 
-Cloudflare Workers HTTP reverse proxy
+Cloudflare Workers HTTP 反向代理
 
-# List
+# 目录
 
-- [HTTP Proxy](#http-proxy)
+- [HTTP 代理](#http-代理)
 
-## HTTP Proxy
+## HTTP 代理
 
-### Environment variables
+### 环境变量
 
-| Name           | Required | Default | Example                | Remark                                      |
-|----------------|----------|---------|------------------------|---------------------------------------------|
-| PROXY_HOSTNAME | √        |         | github.com             | Proxy address hostname                      |
-| PROXY_PROTOCOL | ×        | https   | https                  | Proxy address protocol                      |
-| PATHNAME_REGEX | ×        |         | ^./jonssonyan/         | Regular expression for proxy address path   |
-| UA_REGEX       | ×        |         | (curl)                 | Regular expression for User-Agent whitelist |
-| URL302         | ×        |         | https://jonssonyan.com | 302 Redirect address                        |
-| DEBUG          | ×        | false   | false                  | Enable DEBUG                                |
+| 变量名            | 必填  | 默认值   | 示例                     | 备注                   |
+|----------------|-----|-------|------------------------|----------------------|
+| PROXY_HOSTNAME | √   |       | github.com             | 代理地址 hostname        |
+| PROXY_PROTOCOL | ×   | https | https                  | 代理地址协议               |
+| PATHNAME_REGEX | ×   |       | ^./jonssonyan/         | 代理地址路径匹配的正则表达式       |
+| UA_REGEX       | ×   |       | (curl)                 | User-Agent 白名单的正则表达式 |
+| URL302         | ×   |       | https://jonssonyan.com | 302 跳转地址             |
+| DEBUG          | ×   | false | false                  | 开启调试                 |
 
-### Deploy
+### 部署
 
-Copy [http_proxy.js](http_proxy.js), save and deploy
+复制 [http_proxy.js](http_proxy.js) ，保存并部署
