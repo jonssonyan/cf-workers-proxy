@@ -2,6 +2,8 @@
 
 Cloudflare Workers 代理
 
+- [GitHub 代理](#github-代理)
+
 ## GitHub 代理
 
 ### 环境变量
