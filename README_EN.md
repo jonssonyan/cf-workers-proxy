@@ -10,6 +10,9 @@ Cloudflare Workers HTTP reverse proxy
 
 ## HTTP Proxy
 
+Theoretically, it supports proxying any blocked domain name. You only need to set the environment variable
+PROXY_HOSTNAME to the blocked domain name, and then access it through your worker custom domain name.
+
 ### Environment variables
 
 | Name           | Required | Default | Example                | Remark                                      |

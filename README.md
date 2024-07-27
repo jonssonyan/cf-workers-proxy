@@ -10,6 +10,8 @@ Cloudflare Workers HTTP 反向代理
 
 ## HTTP 代理
 
+理论上支持代理任何被屏蔽的域名，只需要设置环境变量 PROXY_HOSTNAME 为被屏蔽的域名，最后通过你的 worker 自定义域名访问即可
+
 ### 环境变量
 
 | 变量名            | 必填  | 默认值   | 示例                     | 备注                   |
