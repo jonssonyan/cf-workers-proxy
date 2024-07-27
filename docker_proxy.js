@@ -17,10 +17,18 @@ function logError(request, message) {
   );
 }
 
-function createNewRequest(request, url) {
+function createNewRequest(request, url, host) {
   const newRequestHeaders = new Headers(request.headers);
   newRequestHeaders.set("host", url.hostname);
   newRequestHeaders.set("referer", url.hostname);
+  if (host === "docker") {
+    if (
+      /^\/v2\/[^/]+\/[^/]+\/[^/]+$/.test(url.pathname) &&
+      !/^\/v2\/library/.test(url.pathname)
+    ) {
+      url.pathname = url.pathname.replace(/\/v2\//, "/v2/library/");
+    }
+  }
   return new Request(url.toString(), {
     method: request.method,
     headers: newRequestHeaders,
@@ -28,7 +36,7 @@ function createNewRequest(request, url) {
   });
 }
 
-function setResponseHeaders(originalResponse) {
+function setResponseHeaders(originalResponse, host, originUrlHostname) {
   const newResponseHeaders = new Headers(originalResponse.headers);
   newResponseHeaders.set("access-control-allow-origin", "*");
   newResponseHeaders.set("access-control-allow-credentials", "true");
@@ -36,6 +44,16 @@ function setResponseHeaders(originalResponse) {
   newResponseHeaders.delete("content-security-policy");
   newResponseHeaders.delete("content-security-policy-report-only");
   newResponseHeaders.delete("clear-site-data");
+  const wwwAuthenticate = newResponseHeaders.get("Www-Authenticate");
+  if (host === "docker" && wwwAuthenticate) {
+    newResponseHeaders.set(
+      "Www-Authenticate",
+      wwwAuthenticate.replace(
+        new RegExp("registry-1.docker.io", "g"),
+        originUrlHostname
+      )
+    );
+  }
   return newResponseHeaders;
 }
 
@@ -51,12 +69,16 @@ export default {
     }
     try {
       const url = new URL(request.url);
+      const originUrlHostname = url.hostname;
       url.host = host;
-      const newRequest = createNewRequest(request, url);
+      const newRequest = createNewRequest(request, url, host);
       const originalResponse = await fetch(newRequest);
-      const responseBody = await originalResponse.clone().arrayBuffer();
-      const newResponseHeaders = setResponseHeaders(originalResponse);
-      return new Response(responseBody, {
+      const newResponseHeaders = setResponseHeaders(
+        originalResponse,
+        host,
+        originUrlHostname
+      );
+      return new Response(originalResponse.body, {
         status: originalResponse.status,
         headers: newResponseHeaders,
       });
