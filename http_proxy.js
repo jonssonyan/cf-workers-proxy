@@ -66,8 +66,9 @@ async function replaceResponseText(
 ) {
   let text = await originalResponse.text();
   if (pathnameRegex) {
+    pathnameRegex = pathnameRegex.replace(/^\^/, "");
     return text.replace(
-      new RegExp(`^((?<!\\.)\\b${proxyHostname}\\b)(${pathnameRegex})$`, "g"),
+      new RegExp(`((?<!\\.)\\b${proxyHostname}\\b)(${pathnameRegex})`, "g"),
       `${originHostname}$2`
     );
   } else {
