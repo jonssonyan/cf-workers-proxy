@@ -14,7 +14,7 @@ Cloudflare Workers 代理
 |-----------------|------------------------|-----|----------------------|
 | TARGET_HOST     | github.com             | √   | 代理地址的 host           |
 | TARGET_PROTOCOL | https                  | ×   | 代理地址的协议              |
-| PATHNAME_REGEX  | .*/jonssonyan/.*       | ×   | 代理地址路径匹配的正则表达式       |
+| PATHNAME_REGEX  | .\*/jonssonyan/.\*     | ×   | 代理地址路径匹配的正则表达式       |
 | UA              | (curl)                 | ×   | User-Agent 白名单的正则表达式 |
 | URL302          | https://jonssonyan.com | ×   | 302 跳转地址             |
 
