@@ -6,6 +6,13 @@
 
 Cloudflare Workers HTTP 反向代理
 
+<p>
+<a href="https://www.gnu.org/licenses/gpl-3.0.html"><img src="https://img.shields.io/github/license/jonssonyan/cf-workers-proxy" alt="License: GPL-3.0"></a>
+<a href="https://github.com/jonssonyan/cf-workers-proxy/stargazers"><img src="https://img.shields.io/github/stars/jonssonyan/cf-workers-proxy" alt="GitHub stars"></a>
+<a href="https://github.com/jonssonyan/cf-workers-proxy/forks"><img src="https://img.shields.io/github/forks/jonssonyan/cf-workers-proxy" alt="GitHub forks"></a>
+</p>
+
+
 </div>
 
 ## 目录
@@ -68,3 +75,7 @@ systemctl restart docker
 如果这个项目对你有帮助，你可以请我喝杯咖啡:
 
 <img src="https://github.com/jonssonyan/install-script/assets/46235235/cce90c48-27d3-492c-af3e-468b656bdd06" width="150" alt="微信赞赏码" title="微信赞赏码"/>
+
+## 开源协议
+
+[GPL-3.0](LICENSE)
