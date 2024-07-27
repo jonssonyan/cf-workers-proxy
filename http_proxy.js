@@ -12,7 +12,7 @@ function createNewRequest(request, url, proxyHostname, originHostname) {
     if (value.includes(originHostname)) {
       newRequestHeaders.set(
         key,
-        value.replace(new RegExp(originHostname, "g"), proxyHostname)
+        value.replace(new RegExp(`\\b${originHostname}\\b`, "g"), proxyHostname)
       );
     }
   }
@@ -29,7 +29,7 @@ function setResponseHeaders(originalResponse, proxyHostname, originHostname) {
     if (value.includes(proxyHostname)) {
       newResponseHeaders.set(
         key,
-        value.replace(new RegExp(proxyHostname, "g"), originHostname)
+        value.replace(new RegExp(`\\b${proxyHostname}\\b`, "g"), originHostname)
       );
     }
   }
@@ -53,11 +53,11 @@ async function replaceResponseText(
   let text = await originalResponse.text();
   if (pathnameRegex) {
     return text.replace(
-      new RegExp(`^(${proxyHostname})(${pathnameRegex})$`),
+      new RegExp(`^(\\b${proxyHostname}\\b)(${pathnameRegex})$`),
       `${originHostname}$2`
     );
   } else {
-    return text.replace(new RegExp(proxyHostname), originHostname);
+    return text.replace(new RegExp(`\\b${proxyHostname}\\b`), originHostname);
   }
 }
 
