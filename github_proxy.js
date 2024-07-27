@@ -1,11 +1,11 @@
 export default {
     async fetch(request, env, ctx) {
         try {
-            const {TARGET_HOST, TARGET_PROTOCOL = "https", PATHNAME_REGEX, UA, URL302} = env;
+            const {TARGET_HOST, TARGET_PROTOCOL = "https", TARGET_PATHNAME_REGEX, UA_REGEX, URL302} = env;
             const url = new URL(request.url);
             const originUrlProtocol = url.protocol
             const originUrlHostname = url.hostname
-            if (!TARGET_HOST || (PATHNAME_REGEX && !new RegExp(PATHNAME_REGEX).test(url.pathname)) || (UA && !new RegExp(UA).test(request.headers.get('user-agent').toLowerCase()))) {
+            if (!TARGET_HOST || (TARGET_PATHNAME_REGEX && !new RegExp(TARGET_PATHNAME_REGEX).test(url.pathname)) || (UA_REGEX && !new RegExp(UA_REGEX).test(request.headers.get('user-agent').toLowerCase()))) {
                 console.log(`Invalid,clientIp:${request.headers.get('x-real-ip')},user-agent:${request.headers.get('user-agent')}`)
                 return URL302 ? Response.redirect(URL302, 302) : new Response('Invalid', {status: 400});
             }
@@ -28,7 +28,7 @@ export default {
             const contentType = newResponseHeaders.get('content-type') || '';
             let body;
             if (contentType.includes('text/html')) {
-                body = await replaceResponseText(originalResponse, TARGET_HOST, PATHNAME_REGEX, `${originUrlProtocol}//${originUrlHostname}`);
+                body = await replaceResponseText(originalResponse, TARGET_HOST, TARGET_PATHNAME_REGEX, `${originUrlProtocol}//${originUrlHostname}`);
             } else if (contentType.startsWith('image/') || contentType.startsWith('video/') || contentType.startsWith('audio/')) {
                 body = await originalResponse.arrayBuffer();
             } else {
@@ -47,15 +47,15 @@ export default {
 /**
  * 替换内容
  * @param response 响应
- * @param targetHost 目标地址的 host
- * @param pathnameRegex 匹配路径的正则
+ * @param targetHost 代理地址的 host
+ * @param targetPathnameRegex 代理地址路径匹配的正则表达式
  * @param str 替换的字符串
  * @returns {Promise<*>}
  */
-async function replaceResponseText(response, targetHost, pathnameRegex, str) {
+async function replaceResponseText(response, targetHost, targetPathnameRegex, str) {
     let text = await response.text();
-    if (pathnameRegex) {
-        return text.replace(new RegExp(`^(https?://${targetHost})(${pathnameRegex})$`), `${str}$2`);
+    if (targetPathnameRegex) {
+        return text.replace(new RegExp(`^(https?://${targetHost})(${targetPathnameRegex})$`), `${str}$2`);
     } else {
         return text.replace(new RegExp(`^(https?://${targetHost})$`), str);
     }
