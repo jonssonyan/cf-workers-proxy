@@ -1,6 +1,6 @@
 # Cloudflare Workers Proxy
 
-Cloudflare Workers 代理
+基于 Cloudflare Workers 的代理
 
 # 目录
 
