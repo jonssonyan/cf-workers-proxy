@@ -12,7 +12,7 @@
 
 | 变量名            | 必填  | 示例                     | 默认值   | 备注                   |
 |----------------|-----|------------------------|-------|----------------------|
-| PROXY_HOSTNAME | √   | github.com             |       | 代理地址 host            |
+| PROXY_HOSTNAME | √   | github.com             |       | 代理地址 hostname        |
 | PROXY_PROTOCOL | ×   | https                  | https | 代理地址协议               |
 | PATHNAME_REGEX | ×   | ^./jonssonyan/         |       | 代理地址路径匹配的正则表达式       |
 | UA_REGEX       | ×   | (curl)                 |       | User-Agent 白名单的正则表达式 |
