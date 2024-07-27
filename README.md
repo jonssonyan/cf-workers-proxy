@@ -4,9 +4,9 @@
 
 # 目录
 
-- [GitHub 代理](#github-代理)
+- [HTTP 代理](#http-代理)
 
-## GitHub 代理
+## HTTP 代理
 
 ### 环境变量
 
@@ -20,4 +20,4 @@
 
 ### 部署
 
-复制 [github_proxy.js](github_proxy.js) ，保存并部署
+复制 [http_proxy.js](http_proxy.js) ，保存并部署
