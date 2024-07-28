@@ -22,6 +22,11 @@ responsible for the account.**
 Theoretically, it supports proxying any blocked domain name. You only need to set the environment variable
 PROXY_HOSTNAME to the blocked domain name, and then access it through your worker custom domain name.
 
+## Deploy
+
+- Workers: Copy [_worker.js](_worker.js), save and deploy on [Cloudflare](https://www.cloudflare.com)
+- Pages: Fork the repository and connect GitHub on [Cloudflare](https://www.cloudflare.com) for quick deployment
+
 ## Environment variables
 
 | Name                   | Required | Default | Example                | Remark                                      |
@@ -36,11 +41,6 @@ PROXY_HOSTNAME to the blocked domain name, and then access it through your worke
 | REGION_BLACKLIST_REGEX | ×        |         | (JP)                   | Regular expression for region blacklist     |
 | URL302                 | ×        |         | https://jonssonyan.com | 302 Redirect address                        |
 | DEBUG                  | ×        | false   | false                  | Enable DEBUG                                |
-
-## Deploy
-
-- Workers: Copy [_worker.js](_worker.js), save and deploy on [Cloudflare](https://www.cloudflare.com)
-- Pages: Fork the repository and connect GitHub on [Cloudflare](https://www.cloudflare.com) for quick deployment
 
 ## Mirror repository proxy
 

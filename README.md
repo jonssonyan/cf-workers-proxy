@@ -20,6 +20,11 @@ Cloudflare Workers HTTP 反向代理
 
 理论上支持代理任何被屏蔽的域名，只需要设置环境变量 PROXY_HOSTNAME 为被屏蔽的域名，最后通过你的 worker 自定义域名访问即可
 
+## 部署
+
+- Workers 方式: 复制 [_worker.js](_worker.js) ，在 [Cloudflare](https://www.cloudflare.com) 保存并部署
+- Pages 方式: Fork 仓库，在 [Cloudflare](https://www.cloudflare.com) 连接 GitHub 一键部署
+
 ## 环境变量
 
 | 变量名                    | 必填  | 默认值   | 示例                     | 备注                  |
@@ -34,11 +39,6 @@ Cloudflare Workers HTTP 反向代理
 | REGION_BLACKLIST_REGEX | ×   |       | (JP)                   | 地区黑名单正则表达式          |
 | URL302                 | ×   |       | https://jonssonyan.com | 302 跳转地址            |
 | DEBUG                  | ×   | false | false                  | 开启调试                |
-
-## 部署
-
-- Workers 方式: 复制 [_worker.js](_worker.js) ，在 [Cloudflare](https://www.cloudflare.com) 保存并部署
-- Pages 方式: Fork 仓库，在 [Cloudflare](https://www.cloudflare.com) 连接 GitHub 一键部署
 
 ## 镜像仓库加速
 
