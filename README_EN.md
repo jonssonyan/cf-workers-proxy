@@ -23,14 +23,18 @@ PROXY_HOSTNAME to the blocked domain name, and then access it through your worke
 
 ## Environment variables
 
-| Name           | Required | Default | Example                | Remark                                      |
-|----------------|----------|---------|------------------------|---------------------------------------------|
-| PROXY_HOSTNAME | √        |         | github.com             | Proxy address hostname                      |
-| PROXY_PROTOCOL | ×        | https   | https                  | Proxy address protocol                      |
-| PATHNAME_REGEX | ×        |         | ^./jonssonyan/         | Regular expression for proxy address path   |
-| UA_REGEX       | ×        |         | (curl)                 | Regular expression for User-Agent whitelist |
-| URL302         | ×        |         | https://jonssonyan.com | 302 Redirect address                        |
-| DEBUG          | ×        | false   | false                  | Enable DEBUG                                |
+| Name                   | Required | Default | Example                | Remark                                      |
+|------------------------|----------|---------|------------------------|---------------------------------------------|
+| PROXY_HOSTNAME         | √        |         | github.com             | Proxy address hostname                      |
+| PROXY_PROTOCOL         | ×        | https   | https                  | Proxy address protocol                      |
+| PATHNAME_REGEX         | ×        |         | ^./jonssonyan/         | Regular expression for proxy address path   |
+| UA_REGEX               | ×        |         | (curl)                 | Regular expression for User-Agent whitelist |
+| IP_WHITELIST_REGEX     | ×        |         | (192.168.1)            | Regular expression for IP whitelist         |
+| IP_BLACKLIST_REGEX     | ×        |         | (192.168.1)            | Regular expression for IP blacklist         |
+| REGION_WHITELIST_REGEX | ×        |         | (JP)                   | Regular expression for region whitelist     |
+| REGION_BLACKLIST_REGEX | ×        |         | (JP)                   | Regular expression for region blacklist     |
+| URL302                 | ×        |         | https://jonssonyan.com | 302 Redirect address                        |
+| DEBUG                  | ×        | false   | false                  | Enable DEBUG                                |
 
 ## Deploy
 
