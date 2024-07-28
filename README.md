@@ -10,6 +10,7 @@ Cloudflare Workers HTTP 反向代理
 <a href="https://www.gnu.org/licenses/gpl-3.0.html"><img src="https://img.shields.io/github/license/jonssonyan/cf-workers-proxy" alt="License: GPL-3.0"></a>
 <a href="https://github.com/jonssonyan/cf-workers-proxy/stargazers"><img src="https://img.shields.io/github/stars/jonssonyan/cf-workers-proxy" alt="GitHub stars"></a>
 <a href="https://github.com/jonssonyan/cf-workers-proxy/forks"><img src="https://img.shields.io/github/forks/jonssonyan/cf-workers-proxy" alt="GitHub forks"></a>
+<a href="https://github.com/jonssonyan/cf-workers-proxy/releases"><img src="https://img.shields.io/github/v/release/jonssonyan/cf-workers-proxy" alt="GitHub release"></a>
 </p>
 
 
