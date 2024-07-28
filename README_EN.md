@@ -34,7 +34,7 @@ PROXY_HOSTNAME to the blocked domain name, and then access it through your worke
 
 ## Deploy
 
-Copy [http_proxy.js](http_proxy.js), save and deploy
+Copy [_worker.js](_worker.js), save and deploy
 
 ## Mirror repository proxy
 

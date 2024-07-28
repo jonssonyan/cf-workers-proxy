@@ -32,7 +32,7 @@ Cloudflare Workers HTTP 反向代理
 
 ## 部署
 
-复制 [http_proxy.js](http_proxy.js) ，保存并部署
+复制 [_worker.js](_worker.js) ，保存并部署
 
 ## 镜像仓库加速
 
