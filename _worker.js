@@ -1,7 +1,7 @@
 function logError(request, message) {
   console.error(
     `${message}, clientIp: ${request.headers.get(
-      "x-real-ip"
+      "cf-connecting-ip"
     )}, user-agent: ${request.headers.get("user-agent")}, url: ${request.url}`
   );
 }
@@ -88,6 +88,8 @@ export default {
         PATHNAME_REGEX,
         UA_REGEX,
         URL302,
+        IP_WHITELIST_REGEX,
+        IP_BLACKLIST_REGEX,
         DEBUG = false,
       } = env;
       const url = new URL(request.url);
@@ -98,6 +100,14 @@ export default {
         (UA_REGEX &&
           !new RegExp(UA_REGEX).test(
             request.headers.get("user-agent").toLowerCase()
+          )) ||
+        (IP_WHITELIST_REGEX &&
+          !new RegExp(IP_WHITELIST_REGEX).test(
+            request.headers.get("cf-connecting-ip")
+          )) ||
+        (IP_BLACKLIST_REGEX &&
+          new RegExp(IP_BLACKLIST_REGEX).test(
+            request.headers.get("cf-connecting-ip")
           ))
       ) {
         logError(request, "Invalid");
