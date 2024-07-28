@@ -112,7 +112,8 @@ export default {
         PROXY_HOSTNAME,
         PROXY_PROTOCOL = "https",
         PATHNAME_REGEX,
-        UA_REGEX,
+        UA_WHITELIST_REGEX,
+        UA_BLACKLIST_REGEX,
         URL302,
         IP_WHITELIST_REGEX,
         IP_BLACKLIST_REGEX,
@@ -125,9 +126,13 @@ export default {
       if (
         !PROXY_HOSTNAME ||
         (PATHNAME_REGEX && !new RegExp(PATHNAME_REGEX).test(url.pathname)) ||
-        (UA_REGEX &&
-          !new RegExp(UA_REGEX).test(
+        (UA_WHITELIST_REGEX &&
+          !new RegExp(UA_WHITELIST_REGEX).test(
             request.headers.get("user-agent").toLowerCase()
+          )) ||
+        (UA_BLACKLIST_REGEX &&
+          new RegExp(UA_BLACKLIST_REGEX).test(
+            request.headers.get("user-agent")
           )) ||
         (IP_WHITELIST_REGEX &&
           !new RegExp(IP_WHITELIST_REGEX).test(

@@ -32,7 +32,8 @@ Cloudflare Workers HTTP 反向代理
 | PROXY_HOSTNAME         | √   |       | github.com             | 代理地址 hostname       |
 | PROXY_PROTOCOL         | ×   | https | https                  | 代理地址协议              |
 | PATHNAME_REGEX         | ×   |       | ^./jonssonyan/         | 代理地址路径正则表达式         |
-| UA_REGEX               | ×   |       | (curl)                 | User-Agent 白名单正则表达式 |
+| UA_WHITELIST_REGEX     | ×   |       | (curl)                 | User-Agent 白名单正则表达式 |
+| UA_BLACKLIST_REGEX     | ×   |       | (curl)                 | User-Agent 黑名单正则表达式 |
 | IP_WHITELIST_REGEX     | ×   |       | (192.168.1)            | IP 白名单正则表达式         |
 | IP_BLACKLIST_REGEX     | ×   |       | (192.168.1)            | IP 黑名单正则表达式         |
 | REGION_WHITELIST_REGEX | ×   |       | (JP)                   | 地区白名单正则表达式          |
