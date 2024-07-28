@@ -34,8 +34,8 @@ PROXY_HOSTNAME to the blocked domain name, and then access it through your worke
 
 ## Deploy
 
-- Workers: Copy [_worker.js](_worker.js), save and deploy on Cloudflare
-- Pages: Fork the repository and connect GitHub on Cloudflare for quick deployment
+- Workers: Copy [_worker.js](_worker.js), save and deploy on [Cloudflare](https://www.cloudflare.com)
+- Pages: Fork the repository and connect GitHub on [Cloudflare](https://www.cloudflare.com) for quick deployment
 
 ## Mirror repository proxy
 

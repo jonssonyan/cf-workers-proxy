@@ -32,8 +32,8 @@ Cloudflare Workers HTTP 反向代理
 
 ## 部署
 
-- Workers 方式: 复制 [_worker.js](_worker.js) ，在 Cloudflare 保存并部署
-- Pages 方式: Fork 仓库，在 Cloudflare 连接 GitHub 一键部署
+- Workers 方式: 复制 [_worker.js](_worker.js) ，在 [Cloudflare](https://www.cloudflare.com) 保存并部署
+- Pages 方式: Fork 仓库，在 [Cloudflare](https://www.cloudflare.com) 连接 GitHub 一键部署
 
 ## 镜像仓库加速
 
