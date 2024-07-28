@@ -132,7 +132,7 @@ export default {
           )) ||
         (UA_BLACKLIST_REGEX &&
           new RegExp(UA_BLACKLIST_REGEX).test(
-            request.headers.get("user-agent")
+            request.headers.get("user-agent").toLowerCase()
           )) ||
         (IP_WHITELIST_REGEX &&
           !new RegExp(IP_WHITELIST_REGEX).test(
