@@ -90,6 +90,8 @@ export default {
         URL302,
         IP_WHITELIST_REGEX,
         IP_BLACKLIST_REGEX,
+        REGION_WHITELIST_REGEX,
+        REGION_BLACKLIST_REGEX,
         DEBUG = false,
       } = env;
       const url = new URL(request.url);
@@ -108,6 +110,14 @@ export default {
         (IP_BLACKLIST_REGEX &&
           new RegExp(IP_BLACKLIST_REGEX).test(
             request.headers.get("cf-connecting-ip")
+          )) ||
+        (REGION_WHITELIST_REGEX &&
+          !new RegExp(REGION_WHITELIST_REGEX).test(
+            request.headers.get("cf-ipcountry")
+          )) ||
+        (REGION_BLACKLIST_REGEX &&
+          new RegExp(REGION_BLACKLIST_REGEX).test(
+            request.headers.get("cf-ipcountry")
           ))
       ) {
         logError(request, "Invalid");
