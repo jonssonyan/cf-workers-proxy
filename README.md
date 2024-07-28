@@ -15,15 +15,11 @@ Cloudflare Workers HTTP 反向代理
 
 </div>
 
-## 目录
-
-- [HTTP 代理](#http-代理)
-
-## HTTP 代理
+**建议自用，设置 PATHNAME_REGEX 或 UA_REGEX ，并设置自定义域名，禁止代理全站，例如：GitHub，否则导致账号被官方风控概不负责**
 
 理论上支持代理任何被屏蔽的域名，只需要设置环境变量 PROXY_HOSTNAME 为被屏蔽的域名，最后通过你的 worker 自定义域名访问即可
 
-### 环境变量
+## 环境变量
 
 | 变量名            | 必填  | 默认值   | 示例                     | 备注                   |
 |----------------|-----|-------|------------------------|----------------------|
@@ -34,11 +30,11 @@ Cloudflare Workers HTTP 反向代理
 | URL302         | ×   |       | https://jonssonyan.com | 302 跳转地址             |
 | DEBUG          | ×   | false | false                  | 开启调试                 |
 
-### 部署
+## 部署
 
 复制 [http_proxy.js](http_proxy.js) ，保存并部署
 
-### 镜像仓库加速
+## 镜像仓库加速
 
 1. 将环境变量 PROXY_HOSTNAME 设置为以镜像仓库地址即可
 
@@ -55,18 +51,18 @@ Cloudflare Workers HTTP 反向代理
 
 2. 设置 Docker 镜像仓库加速
 
-将 https://dockerhub.xxx.com 替换为你的 worker 自定义域名
+   将 https://dockerhub.xxx.com 替换为你的 worker 自定义域名
 
-```bash
-mkdir -p /etc/docker
-cat >/etc/docker/daemon.json <<EOF
-{
-  "registry-mirrors":["https://dockerhub.xxx.com"]
-}
-EOF
-systemctl daemon-reload
-systemctl restart docker
-```
+   ```bash
+   mkdir -p /etc/docker
+   cat >/etc/docker/daemon.json <<EOF
+   {
+     "registry-mirrors":["https://dockerhub.xxx.com"]
+   }
+   EOF
+   systemctl daemon-reload
+   systemctl restart docker
+   ```
 
 ## 其他
 
