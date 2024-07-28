@@ -15,7 +15,7 @@ Cloudflare Workers HTTP reverse proxy
 
 </div>
 
-**It is recommended to set PATHNAME_REGEX or UA_REGEX for personal use, and set a custom domain name for the worker. It
+**It is recommended to use regular expressions to filter requests for personal use, and set a custom domain name for the worker. It
 is forbidden to use the proxy for the entire site, such as GitHub. Otherwise, the official risk control will not be
 responsible for the account.**
 

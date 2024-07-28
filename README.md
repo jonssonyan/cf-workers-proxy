@@ -16,7 +16,7 @@ Cloudflare Workers HTTP 反向代理
 
 </div>
 
-**建议自用，设置 PATHNAME_REGEX 或 UA_REGEX ，并设置 worker 自定义域名，禁止代理全站，例如：GitHub，否则导致账号被官方风控概不负责**
+**建议自用，使用正则表达式过滤请求，并设置 worker 自定义域名，禁止代理全站，例如：GitHub，否则导致账号被官方风控概不负责**
 
 理论上支持代理任何被屏蔽的域名，只需要设置环境变量 PROXY_HOSTNAME 为被屏蔽的域名，最后通过你的 worker 自定义域名访问即可
 
