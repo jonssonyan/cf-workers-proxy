@@ -14,9 +14,9 @@ Cloudflare Workers HTTP reverse proxy
 
 </div>
 
-**It is recommended to set PATHNAME_REGEX or UA_REGEX for personal use, and set a custom domain name. It is forbidden to
-use the proxy for the entire site, such as GitHub. Otherwise, the official risk control will not be responsible for the
-account.**
+**It is recommended to set PATHNAME_REGEX or UA_REGEX for personal use, and set a custom domain name for the worker. It
+is forbidden to use the proxy for the entire site, such as GitHub. Otherwise, the official risk control will not be
+responsible for the account.**
 
 Theoretically, it supports proxying any blocked domain name. You only need to set the environment variable
 PROXY_HOSTNAME to the blocked domain name, and then access it through your worker custom domain name.
