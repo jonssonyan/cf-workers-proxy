@@ -34,8 +34,8 @@ Cloudflare Workers HTTP 反向代理
 | PATHNAME_REGEX         | ×   |       | ^/jonssonyan/                                  | 代理地址路径正则表达式         |
 | UA_WHITELIST_REGEX     | ×   |       | (curl)                                         | User-Agent 白名单正则表达式 |
 | UA_BLACKLIST_REGEX     | ×   |       | (curl)                                         | User-Agent 黑名单正则表达式 |
-| IP_WHITELIST_REGEX     | ×   |       | (192.168.1)                                    | IP 白名单正则表达式         |
-| IP_BLACKLIST_REGEX     | ×   |       | (192.168.1)                                    | IP 黑名单正则表达式         |
+| IP_WHITELIST_REGEX     | ×   |       | (192.168.0.1)                                  | IP 白名单正则表达式         |
+| IP_BLACKLIST_REGEX     | ×   |       | (192.168.0.1)                                  | IP 黑名单正则表达式         |
 | REGION_WHITELIST_REGEX | ×   |       | (JP)                                           | 地区白名单正则表达式          |
 | REGION_BLACKLIST_REGEX | ×   |       | (JP)                                           | 地区黑名单正则表达式          |
 | URL302                 | ×   |       | https://github.com/jonssonyan/cf-workers-proxy | 302 跳转地址            |

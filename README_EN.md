@@ -36,8 +36,8 @@ PROXY_HOSTNAME to the blocked domain name, and then access it through your worke
 | PATHNAME_REGEX         | ×        |         | ^/jonssonyan/                                  | Regular expression for proxy address path   |
 | UA_WHITELIST_REGEX     | ×        |         | (curl)                                         | Regular expression for User-Agent whitelist |
 | UA_BLACKLIST_REGEX     | ×        |         | (curl)                                         | Regular expression for User-Agent blacklist |
-| IP_WHITELIST_REGEX     | ×        |         | (192.168.1)                                    | Regular expression for IP whitelist         |
-| IP_BLACKLIST_REGEX     | ×        |         | (192.168.1)                                    | Regular expression for IP blacklist         |
+| IP_WHITELIST_REGEX     | ×        |         | (192.168.0.1)                                  | Regular expression for IP whitelist         |
+| IP_BLACKLIST_REGEX     | ×        |         | (192.168.0.1)                                  | Regular expression for IP blacklist         |
 | REGION_WHITELIST_REGEX | ×        |         | (JP)                                           | Regular expression for region whitelist     |
 | REGION_BLACKLIST_REGEX | ×        |         | (JP)                                           | Regular expression for region blacklist     |
 | URL302                 | ×        |         | https://github.com/jonssonyan/cf-workers-proxy | 302 Redirect address                        |
