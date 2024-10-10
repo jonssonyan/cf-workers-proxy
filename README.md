@@ -82,11 +82,11 @@ Cloudflare Workers HTTP 反向代理
 3. 查询镜像
 
    ```bash
-   docker search dockerhub.xxx.com/redis
+   docker search dockerhub.xxx.com/image_name
    ```
 
    - dockerhub.xxx.com：你的 worker 自定义域名
-   - redis：镜像名称
+   - image_name：镜像名称
 
 ## 其他
 

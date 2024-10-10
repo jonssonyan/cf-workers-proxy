@@ -85,11 +85,11 @@ processing. Please use the specified file when deploying.
 3. Search Mirror
 
    ```bash
-   docker search dockerhub.xxx.com/redis
+   docker search dockerhub.xxx.com/image_name
    ```
 
    - dockerhub.xxx.com：your worker custom domain name
-   - redis：image name
+   - image_name：image name
 
 ## Other
 
