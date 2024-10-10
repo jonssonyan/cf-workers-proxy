@@ -132,6 +132,8 @@ export default {
       const originHostname = url.hostname;
       if (url.pathname.includes("/token")) {
         PROXY_HOSTNAME = "auth.docker.io";
+      } else if (url.pathname.includes("/search")) {
+        PROXY_HOSTNAME = "index.docker.io";
       }
       if (
         !PROXY_HOSTNAME ||
