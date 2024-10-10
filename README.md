@@ -79,6 +79,15 @@ Cloudflare Workers HTTP 反向代理
    systemctl restart docker
    ```
 
+3. 查询镜像
+
+   ```bash
+   docker search dockerhub.xxx.com/redis
+   ```
+
+   - dockerhub.xxx.com：你的 worker 自定义域名
+   - redis：镜像名称
+
 ## 其他
 
 你可以在 YouTube 上订阅我的频道: https://www.youtube.com/@jonssonyan

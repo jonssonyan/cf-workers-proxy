@@ -82,6 +82,15 @@ processing. Please use the specified file when deploying.
    systemctl restart docker
    ```
 
+3. Search Mirror
+
+   ```bash
+   docker search dockerhub.xxx.com/redis
+   ```
+
+   - dockerhub.xxx.com：your worker custom domain name
+   - redis：image name
+
 ## Other
 
 You can subscribe to my channel on YouTube: https://www.youtube.com/@jonssonyan
