@@ -93,6 +93,8 @@ processing. Please use the specified file when deploying.
 
 ## Other
 
+Telegram Channel: https://t.me/jonssonyan_channel
+
 You can subscribe to my channel on YouTube: https://www.youtube.com/@jonssonyan
 
 If this project is helpful to you, you can buy me a cup of coffee.
