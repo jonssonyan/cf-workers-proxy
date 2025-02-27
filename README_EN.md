@@ -54,7 +54,7 @@ processing. Please use the specified file when deploying.
 
 ## Mirror repository proxy
 
-1. Set the environment variable PROXY_HOSTNAME to the mirror repository address.
+1. Set the environment variable PROXY_HOSTNAME to the following image repository address.
 
 | Mirror repository | Address              |     
 |-------------------|----------------------|
