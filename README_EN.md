@@ -28,7 +28,7 @@ PROXY_HOSTNAME to the blocked domain name, and then access it through your worke
 
 - Workers: Copy [_worker.js](_worker.js), save and deploy on [Cloudflare](https://www.cloudflare.com),or click the button below
 
-  [![Deploy to Cloudflare](./assets/button.svg)](https://deploy.workers.cloudflare.com/?url=https://github.com/zhangda3/cf-workers-proxy)
+  [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/zhangda3/cf-workers-proxy)
 
 - Pages: [Fork](https://github.com/jonssonyan/cf-workers-proxy/fork) the repository and connect GitHub
   on [Cloudflare](https://www.cloudflare.com) for quick deployment
