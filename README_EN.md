@@ -6,6 +6,8 @@ English / [简体中文](README.md)
 
 Cloudflare Workers HTTP reverse proxy
 
+This version adds basic HTTP authentication and one-click deployment on the basis of the original author
+
 <p>
 <a href="https://www.gnu.org/licenses/gpl-3.0.html"><img src="https://img.shields.io/github/license/jonssonyan/cf-workers-proxy" alt="License: GPL-3.0"></a>
 <a href="https://github.com/jonssonyan/cf-workers-proxy/stargazers"><img src="https://img.shields.io/github/stars/jonssonyan/cf-workers-proxy" alt="GitHub stars"></a>
@@ -24,7 +26,10 @@ PROXY_HOSTNAME to the blocked domain name, and then access it through your worke
 
 ## Deploy
 
-- Workers: Copy [_worker.js](_worker.js), save and deploy on [Cloudflare](https://www.cloudflare.com)
+- Workers: Copy [_worker.js](_worker.js), save and deploy on [Cloudflare](https://www.cloudflare.com),or click the button below
+
+  [![Deploy to Cloudflare](./assets/button.svg)](https://deploy.workers.cloudflare.com/?url=https://github.com/zhangda3/cf-workers-proxy)
+
 - Pages: [Fork](https://github.com/jonssonyan/cf-workers-proxy/fork) the repository and connect GitHub
   on [Cloudflare](https://www.cloudflare.com) for quick deployment
 
@@ -52,7 +57,12 @@ processing. Please use the specified file when deploying.
 | URL302                 | ×        |         | https://github.com/jonssonyan/cf-workers-proxy | 302 Redirect address                        |
 | KEEP_PATH              | ×        | false   | false                                          | Keep path for URL redirection                         |
 | DEBUG                  | ×        | false   | false                                          | Enable DEBUG                                |
+| AUTH_USERNAME | × |  | kks | Basic authentication username |
+| AUTH_PASSWORD_HASH | × |  | 872e4e50ce9990d8b041330c47c9ddd11bec6b503ae9386a99da8584e9bb12c4 | Basic authentication password HASH256 value |
 
+Password HASH website example:https://www.lddgo.net/encrypt/hash
+
+If the username and password hash variables do not exist, authentication is not enabled by default
 ## Mirror repository proxy
 
 1. Set the environment variable PROXY_HOSTNAME to the following image repository address.
