@@ -1,8 +1,9 @@
 <div align="center">
-
-<h1 align="center">Cloudflare Workers Proxy</h1>
+<h1 align="center">Cloudflare Workers Proxy 优化版</h1>
 
 [English](README_EN.md) / 简体中文
+
+这一版在原作者的基础上增加了基础HTTP认证的功能的功能
 
 Cloudflare Workers HTTP 反向代理
 
@@ -16,7 +17,7 @@ Cloudflare Workers HTTP 反向代理
 
 </div>
 
-**建议自用，使用正则表达式过滤请求，并设置 worker 自定义域名，禁止代理全站，例如：GitHub，否则导致账号被官方风控概不负责**
+**建议自用，建议增加基础认证，使用正则表达式过滤请求，并设置 worker 自定义域名，禁止代理全站，例如：GitHub，否则导致账号被官方风控概不负责**
 
 理论上支持代理任何被屏蔽的域名，只需要设置环境变量 PROXY_HOSTNAME 为被屏蔽的域名，最后通过你的 worker 自定义域名访问即可
 
@@ -49,6 +50,12 @@ Cloudflare Workers HTTP 反向代理
 | URL302                 | ×   |       | https://github.com/jonssonyan/cf-workers-proxy | 302 跳转地址            |
 | KEEP_PATH              | ×   | false | false                                          | 302 跳转时保留 path     |
 | DEBUG                  | ×   | false | false                                          | 开启调试                |
+| AUTH_USERNAME | × |  | kks | 基本认证用户名 |
+| AUTH_PASSWORD_HASH | × |  | 872e4e50ce9990d8b041330c47c9ddd11bec6b503ae9386a99da8584e9bb12c4 | 基本认证密码HASH256值 |
+
+密码HASH网站例:https://www.lddgo.net/encrypt/hash
+
+用户名和密码哈希变量不存在时默认不开启认证
 
 ## 镜像仓库加速
 
